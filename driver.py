@@ -5,6 +5,7 @@ import os
 import sys
 import time
 from time import perf_counter
+import logging.config
 
 # FORCE Python to use virtualenv packages FIRST
 VENV_PATH = r'C:\Users\Gunav\Desktop\spark1-master\sparl1locanvenv\Lib\site-packages'
@@ -37,6 +38,7 @@ from core.validate import get_current_date
 from utils.logger import setup_logging
 
 # Setup logging
+logging.config.fileConfig('src/config/logging.config')
 logger = setup_logging()
 
 

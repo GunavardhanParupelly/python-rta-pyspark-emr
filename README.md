@@ -1,131 +1,84 @@
-# Spark ETL – PySpark Example (RTA ETL)
+# RTA ETL Pipeline
 
-Production-ready PySpark ETL pipeline for vehicle registration data processing with modular architecture.
+A scalable ETL pipeline for RTA data, built with PySpark.
+
+---
 
 ## Project Structure
 
 ```
 spark1-master/
-├── src/
-│   ├── config/              # Configuration modules
-│   │   ├── spark_config.py  # Spark session setup
-│   │   └── environment.py   # Environment variables
-│   ├── core/                # Core ETL logic
-│   │   ├── ingest.py        # Data loading
-│   │   ├── transformation.py# ETL transformations
-│   │   ├── validate.py      # Data validation
-│   │   └── persist.py       # Output writing
-│   └── utils/               # Utility functions
-│       └── logger.py        # Logging setup
-├── data/
-│   ├── input/               # Input CSV/Parquet files
-│   └── output/              # Processed output
-├── config/
-│   └── logging.config       # Logging configuration
-├── tests/                   # Unit tests
-├── driver.py                # Main entry point
-├── requirements.txt
-└── README.md
+├── .vscode/               # VS Code workspace settings
+├── data/                  # Input and output data files
+├── output/                # Pipeline output files
+├── src/                   # Source code and configuration
+│   ├── config/            # Configuration files
+│   │   ├── logging.config
+│   │   ├── environment.py
+│   │   ├── spark_config.py
+│   └── core/              # Core ETL modules
+│       ├── transformation.py
+│       ├── extraction.py
+│       ├── ingestion.py
+│       ├── persist.py
+│       └── validate.py
+├── tests/                 # Unit and integration tests
+│   └── test_transformation.py
+├── .gitignore             # Git ignore rules
+├── application.log        # Application log file
+├── driver.py              # Main entry point for running the pipeline
+├── pytest.ini             # Pytest configuration
+├── requirements.txt       # Python dependencies
+├── DEVELOPMENT_TRACK.md   # Development issues and solutions
+├── DEVELOPMENT.md         # Additional development documentation
+├── README.md              # Project overview and instructions
+├── spark1locanvenv/       # Python virtual environment folder (do not commit)
 ```
 
-## Quick Start
+---
 
-### 1. Setup Environment
+## Getting Started
 
-```powershell
-# Clone/navigate to project
-cd C:\Users\Gunav\Desktop\spark1-master
+1. **Clone the repository**
+2. **Set up your Python virtual environment**
+   ```bash
+   python -m venv spark1locanvenv
+   .\spark1locanvenv\Scripts\activate
+   pip install -r requirements.txt
+   ```
+3. **Configure your environment**
+   - Edit files in `src/config/` as needed for your setup.
 
-# Create virtual environment
-python -m venv .venv
-.\.venv\Scripts\Activate.ps1
+4. **Run the pipeline**
+   ```bash
+   python driver.py
+   ```
 
-# Install dependencies
-pip install -r requirements.txt
-```
+5. **Run tests**
+   ```bash
+   pytest tests/
+   ```
 
-### 2. Configure Paths
+---
 
-Edit `src/config/environment.py` to customize:
-- Input/output directories
-- Spark configurations
-- Application settings
+## Key Components
 
-### 3. Add Input Data
+- **src/config/**: Centralized configuration for logging, environment, and Spark.
+- **src/core/**: Core ETL logic and transformations (`transformation.py`, `extraction.py`, `ingestion.py`, `persist.py`, `validate.py`).
+- **tests/**: Automated tests for data quality and ETL logic.
+- **data/**: Input and output datasets.
+- **output/**: Pipeline output files.
+- **driver.py**: Main script to run the ETL pipeline.
 
-Place CSV/Parquet files in `data/input/`
+---
 
-### 4. Run Pipeline
+## Notes
 
-```powershell
-python driver.py
-```
+- Do **not** commit sensitive information (like AWS keys) to the repository.
+- Do **not** commit your virtual environment folder (`spark1locanvenv/`) to git.
+- `.pytest_cache` and other temporary files should not be tracked by git.
 
-## Configuration
+---
 
-### Environment Variables (`src/config/environment.py`)
-
-```python
-envn = 'LOCAL'                    # Environment: LOCAL, DEV, PROD
-appName = 'RTA_ETL_Pipeline'      # Application name
-src_olap = 'data/input'           # Input directory
-trans_path = 'data/output'        # Output directory
-header = 'True'                   # CSV has header
-inferSchema = 'True'              # Auto-detect schema
-```
-
-### Windows-Specific Setup
-
-Ensure these are configured (already handled in `driver.py`):
-- `HADOOP_HOME`: Path to Hadoop binaries with winutils.exe
-- `JAVA_HOME`: Path to JDK 8/11/17
-
-## Output
-
-The pipeline generates:
-- **Dimension tables**: `gold_dim_vehicle/`, `gold_dim_manufacturer/`, `gold_dim_rta/`
-- **Fact table**: `gold_fact_registrations/` (partitioned by year)
-- **Bad records**: Separate folders for duplicates, missing keys, invalid dates
-- **Metrics**: `metrics_summary.json` with pipeline statistics
-
-## Development
-
-### Running Tests
-
-```powershell
-pytest tests/
-```
-
-### Adding New Transformations
-
-1. Add transformation function to `src/core/transformation.py`
-2. Import and call in `driver.py` or create new pipeline script
-3. Add tests in `tests/`
-
-### Code Style
-
-Follow PEP 8. Use docstrings for all functions:
-
-```python
-def my_function(param1, param2):
-    """
-    Brief description
-    
-    Args:
-        param1: Description
-        param2: Description
-        
-    Returns:
-        Description of return value
-    """
-    pass
-```
-
-## Troubleshooting
-
-See detailed troubleshooting guide in [TROUBLESHOOTING.md](TROUBLESHOOTING.md) or README Troubleshooting section.
-
-## License
-
-MIT License (or your preferred license)
+Feel free to expand this README as your project evolves!
 

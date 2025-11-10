@@ -31,3 +31,30 @@
 2025-11-10 20:28:35,417 - utils.logger - INFO - ================================================================================
 2025-11-10 20:28:35,417 - utils.logger - INFO - Pipeline completed: 1 files processed in 81.78s
 2025-11-10 20:28:35,417 - utils.logger - INFO - ================================================================================
+2025-11-10 20:39:48,385 - root - WARNING - Logging config not found: c:\Users\Gunav\Desktop\spark1-master\config\logging.config
+2025-11-10 20:39:48,385 - utils.logger - INFO - ================================================================================
+2025-11-10 20:39:48,385 - utils.logger - INFO - Starting RTA ETL Pipeline
+2025-11-10 20:39:48,385 - utils.logger - INFO - ================================================================================
+2025-11-10 20:39:48,385 - utils.logger - INFO - Creating Spark session...
+2025-11-10 20:39:51,758 - validate - WARNING - started the get_current_date method..
+2025-11-10 20:39:55,704 - validate - WARNING - validation done , go frwd...
+2025-11-10 20:39:55,704 - utils.logger - INFO - Processing file: telangana_transport_sales_jan_2019.csv (format: csv)
+2025-11-10 20:39:55,704 - ingest - WARNING - load_files method stared...
+2025-11-10 20:39:57,864 - ingest - WARNING - dataframe created sucessfully which is of csv
+2025-11-10 20:39:57,864 - ingest - INFO - Displaying DataFrame: df_telangana_transport_sales_jan_2019.csv
+2025-11-10 20:39:58,136 - ingest - WARNING - here to count the records in the df_telangana_transport_sales_jan_2019.csv
+2025-11-10 20:39:59,094 - ingest - WARNING - Number of records present in the DataFrame[slno: int, modelDesc: string, fuel: string, colour: string, vehicleClass: string, makeYear: string, seatCapacity: int, secondVehicle: string, tempRegistrationNumber: string, category: string, makerName: string, OfficeCd: string, fromdate: string, todate: string] are :: 184665
+2025-11-10 20:39:59,094 - utils.logger - INFO - Starting ETL pipeline with run_id: run_1762787399
+2025-11-10 20:39:59,094 - transformation - INFO - Starting clean_and_stage()
+2025-11-10 20:40:06,337 - transformation - INFO - Completed clean_and_stage()
+2025-11-10 20:40:06,337 - transformation - INFO - Deriving emissionStandard
+2025-11-10 20:40:07,543 - transformation - INFO - Generating surrogate keys
+2025-11-10 20:40:08,629 - transformation - INFO - Building dimensions
+2025-11-10 20:40:12,214 - transformation - INFO - Running exact + fuzzy vehicle resolution
+2025-11-10 20:40:32,699 - transformation - INFO - Assembling fact table
+2025-11-10 20:40:47,680 - transformation - INFO - Starting dynamic coalesce write to run_1762787399\gold_fact_registrations (format=parquet)
+2025-11-10 20:41:14,394 - transformation - INFO - RTA ETL on dataframe completed successfully.
+2025-11-10 20:41:14,394 - utils.logger - INFO - ETL completed. Metrics: {'run_id': None, 'config': {'output_root': 'run_1762787399', 'mode': 'overwrite', 'target_mb': 128.0}, 'steps': {'clean_and_stage': {'before': 184665, 'missing_tempRegistrationNumber': 0, 'after_dedupe': 95519, 'deduplicated_rows': 89146, 'invalid_dates': 0, 'staged_rows': 95519}, 'derive_emission_standard': {'before': 95519, 'after': 95519}, 'generate_surrogate_keys': {'before': 95519, 'after': 95519}, 'build_dimensions': {'dim_vehicle_count': 5535, 'dim_manufacturer_count': 372, 'dim_rta_count': 53}, 'fuzzy_vehicle_resolution': {'exact_matches': 95519, 'fuzzy_matches': 0, 'total_resolved': 95519}, 'assemble_fact_table': {'before': 95519, 'after': 95519}}, 'writes': {'fact': {'path': 'run_1762787399\\gold_fact_registrations', 'coalesced_parts': 1, 'bytes': 3052142}}, 'final_counts': {'dim_vehicle': 5535, 'dim_manufacturer': 372, 'dim_rta': 53, 'fact_rows': 95519}}
+2025-11-10 20:41:14,394 - utils.logger - INFO - ================================================================================
+2025-11-10 20:41:14,394 - utils.logger - INFO - Pipeline completed: 1 files processed in 86.00s
+2025-11-10 20:41:14,394 - utils.logger - INFO - ================================================================================
