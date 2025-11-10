@@ -1,0 +1,61 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+*.pyc
+
+# Virtual environments
+venv/
+.venv/
+sparl1locanvenv/
+env/
+ENV/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Spark
+metastore_db/
+derby.log
+spark-warehouse/
+
+# Logs
+*.log
+application.log
+error.log
+
+# Data
+data/input/*.csv
+data/input/*.parquet
+data/output/*
+!data/input/.gitkeep
+!data/output/.gitkeep
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Old structure
+source/
+Proporties/
+Properties/
+
+# Project structure
+spark1-master/
+├── src/                    ✅ Your code
+├── data/                   ✅ Input/output data
+├── config/                 ✅ Configuration
+├── tests/                  ✅ Unit tests
+├── .venv/ or sparl1locanvenv/  ✅ Virtual environment (choose one)
+├── driver.py              ✅ Main script
+├── requirements.txt       ✅ Dependencies
+├── README.md              ✅ Documentation
+└── .gitignore             ✅ Git ignore rulescls

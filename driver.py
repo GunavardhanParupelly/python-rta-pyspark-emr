@@ -1,103 +1,133 @@
-import logging
-import logging.config
+"""
+Main driver script for RTA ETL Pipeline
+"""
 import os
 import sys
-from time import perf_counter
 import time
+from time import perf_counter
 
+# FORCE Python to use virtualenv packages FIRST
+VENV_PATH = r'C:\Users\Gunav\Desktop\spark1-master\sparl1locanvenv\Lib\site-packages'
+if VENV_PATH not in sys.path:
+    sys.path.insert(0, VENV_PATH)
+
+# Remove any manual Spark paths
+sys.path = [p for p in sys.path if 'spark-3.4.2-bin-hadoop3' not in p]
+
+# Windows setup
 if sys.platform.startswith('win'):
-    hadoop_home = r'C:\spark\hadoop-3.3.5'
-    os.environ.setdefault('HADOOP_HOME', hadoop_home)
-    bin_path = os.path.join(hadoop_home, 'bin')
-    if bin_path not in os.environ.get('PATH', ''):
-        os.environ['PATH'] = os.environ['PATH'] + ';' + bin_path
-    # Ensure JAVA_HOME (adjust path)
-    os.environ.setdefault('JAVA_HOME', r'C:\Program Files\Java\jdk-17')
+    os.environ.setdefault('HADOOP_HOME', r'C:\spark\hadoop-3.3.5')
+    os.environ.setdefault('JAVA_HOME', r'C:\Program Files\Java\jdk-11')
+    hadoop_bin = os.path.join(os.environ['HADOOP_HOME'], 'bin')
+    if hadoop_bin not in os.environ.get('PATH', ''):
+        os.environ['PATH'] += ';' + hadoop_bin
 
-ROOT = os.path.dirname(os.path.abspath(__file__))
-SRC_PATH = os.path.join(ROOT, 'src')
+# Add src to path
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+SRC_PATH = os.path.join(PROJECT_ROOT, 'src')
 if SRC_PATH not in sys.path:
     sys.path.insert(0, SRC_PATH)
 
-import get_env_variables as gav
-from create_spark import get_spark_object
-from ingest import load_files, display_df, df_count
-from transformation import run_rta_etl_on_df
-from validate import get_current_date
+# Now import everything
+from config.environment import envn, appName, src_olap, trans_path, header, inferSchema
+from config.spark_config import get_spark_object
+from core.ingest import load_files, display_df, df_count
+from core.transformation import run_rta_etl_on_df
+from core.validate import get_current_date
+from utils.logger import setup_logging
 
-# Logging config existence check
-_log_cfg = 'Properties/configuration/logging.config'
-if not os.path.isfile(_log_cfg):
-    print(f'WARN: Logging config not found: {_log_cfg}')
-else:
-    logging.config.fileConfig(_log_cfg)
-logging.getLogger().setLevel(logging.INFO)
+# Setup logging
+logger = setup_logging()
+
 
 def main():
+    """
+    Main ETL pipeline execution
+    """
     start = perf_counter()
+    
     try:
-        logging.info('Starting main')
-        spark = get_spark_object(gav.envn, gav.appName)
+        logger.info('=' * 80)
+        logger.info('Starting RTA ETL Pipeline')
+        logger.info('=' * 80)
+        
+        # Create Spark session
+        logger.info('Creating Spark session...')
+        spark = get_spark_object(envn, appName)
         get_current_date(spark)
-
-        src_dir = gav.src_olap
-        if not os.path.isdir(src_dir):
-            logging.error('Source dir missing: %s', src_dir)
+        
+        # Verify input directory
+        if not os.path.isdir(src_olap):
+            logger.error(f'Input directory not found: {src_olap}')
             return 1
-
-        for fname in os.listdir(src_dir):
-            path = os.path.join(src_dir, fname)
-            if not os.path.isfile(path):
+        
+        # Process each file
+        files_processed = 0
+        for file in os.listdir(src_olap):
+            file_path = os.path.join(src_olap, file)
+            
+            if not os.path.isfile(file_path):
                 continue
-
-            if fname.endswith('.parquet'):
+            
+            # Determine file format
+            if file.lower().endswith('.parquet'):
                 file_format = 'parquet'
-                header = None
-                infer_schema = None
-            elif fname.endswith('.csv'):
+                file_header = 'NA'
+                file_infer_schema = 'NA'
+            elif file.lower().endswith('.csv'):
                 file_format = 'csv'
-                header = gav.header
-                infer_schema = gav.inferSchema
+                file_header = header
+                file_infer_schema = inferSchema
             else:
+                logger.info(f'Skipping unsupported file: {file}')
                 continue
-
-            logging.info('Reading %s (%s)', fname, file_format)
+            
+            logger.info(f'Processing file: {file} (format: {file_format})')
+            
             try:
+                # Load data
                 df = load_files(
                     spark=spark,
-                    file_formate=file_format,  # keep legacy param name
-                    inferSchema=infer_schema,
-                    file_dir=path,
-                    header=header
+                    file_formate=file_format,
+                    inferSchema=file_infer_schema,
+                    file_dir=file_path,
+                    header=file_header
                 )
-            except Exception:
-                logging.exception('Load failed for %s', fname)
-                continue
-
-            display_df(df, 'df_transport')
-            df_count(df, 'df_transport')
-
-            try:
+                
+                # Display and validate
+                display_df(df, f'df_{file}')
+                df_count(df, f'df_{file}')
+                
+                # Run ETL pipeline
                 run_id = f'run_{int(time.time())}'
-                metrics = run_rta_etl_on_df(
-                    df,
-                    spark,
-                    output_root=gav.trans_path,
-                    mode='overwrite',
-                    run_id=run_id,
-                    output_format='csv'
-                )
-                logging.info('Metrics %s: %s', fname, metrics)
-            except Exception:
-                logging.exception('ETL failed for %s', fname)
-
-        logging.info('Elapsed %.2fs', perf_counter() - start)
+                logger.info(f'Starting ETL pipeline with run_id: {run_id}')
+                
+                metrics = run_rta_etl_on_df(df, spark, run_id)
+                logger.info(f'ETL completed. Metrics: {metrics}')
+                
+                files_processed += 1
+                
+            except Exception as e:
+                logger.exception(f'Failed to process {file}: {str(e)}')
+                continue
+        
+        # Summary
+        elapsed = perf_counter() - start
+        logger.info('=' * 80)
+        logger.info(f'Pipeline completed: {files_processed} files processed in {elapsed:.2f}s')
+        logger.info('=' * 80)
+        
         return 0
-    except Exception:
-        logging.exception('Fatal error')
+        
+    except Exception as e:
+        logger.exception(f'Fatal error in pipeline: {str(e)}')
         return 2
+    finally:
+        # Cleanup
+        if 'spark' in locals():
+            spark.stop()
+
 
 if __name__ == '__main__':
-    rc = main()
-    logging.info('Done exit=%s', rc)
-    sys.exit(rc)
+    exit_code = main()
+    sys.exit(exit_code)

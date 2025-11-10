@@ -1,12 +1,8 @@
 {
-  "python.analysis.extraPaths": [
-    "${workspaceFolder}/src",
-    "${workspaceFolder}"
-  ],
-  "python.testing.pytestEnabled": true,
-  "python.testing.pytestArgs": [
-    "tests"
-  ],
-  "python.defaultInterpreterPath": "c:\\Users\\Gunav\\Desktop\\spark1-master\\sparl1locanvenv\\Scripts\\python.exe"
+    "python.analysis.extraPaths": [
+        "/usr/lib/spark/python/lib/py4j-0.10.9.7-src.zip",
+        "/usr/lib/spark/python/",
+        "/usr/lib/spark/python/lib/",
+        "./src"
+    ]
 }
-

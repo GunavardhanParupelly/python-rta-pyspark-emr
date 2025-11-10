@@ -1360,3 +1360,271 @@ Traceback (most recent call last):
   File "C:\spark\spark-3.4.2-bin-hadoop3\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 539, in send_command
     raise Py4JNetworkError(
 py4j.protocol.Py4JNetworkError: Error while sending or receiving
+2025-11-08 21:06:12,581 - root - INFO - Starting ETL
+2025-11-08 21:06:12,581 - create_spark - INFO - creating spark object..
+2025-11-08 21:06:12,581 - create_spark - INFO - master is local
+2025-11-08 21:06:43,661 - create_spark - INFO - spark object created successfully..
+2025-11-08 21:06:43,661 - validate - WARNING - started the get_current_date method..
+2025-11-08 21:06:50,889 - validate - WARNING - validation done , go frwd...
+2025-11-08 21:06:50,890 - root - INFO - Processing telangana_transport_sales_jan_2019.csv
+2025-11-08 21:06:50,890 - ingest - WARNING - load_files method stared...
+2025-11-08 21:06:50,891 - ingest - WARNING - dataframe created sucessfully which is of C:\Users\Gunav\Desktop\spark1-master\source\olap\telangana_transport_sales_jan_2019.csv
+2025-11-08 21:06:50,891 - root - ERROR - Failed telangana_transport_sales_jan_2019.csv
+Traceback (most recent call last):
+  File "C:\Users\Gunav\Desktop\spark1-master\driver.py", line 49, in main
+    df = load_files(spark, path, file_format, gav.header, gav.inferSchema)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Gunav\Desktop\spark1-master\ingest.py", line 23, in load_files
+    return df
+           ^^
+NameError: name 'df' is not defined
+2025-11-08 21:06:50,893 - root - INFO - Done in 38.31s
+2025-11-08 21:09:15,999 - root - INFO - Starting ETL
+2025-11-08 21:09:15,999 - create_spark - INFO - creating spark object..
+2025-11-08 21:09:15,999 - create_spark - INFO - master is local
+2025-11-08 21:09:20,384 - create_spark - INFO - spark object created successfully..
+2025-11-08 21:09:20,384 - validate - WARNING - started the get_current_date method..
+2025-11-08 21:09:29,985 - validate - WARNING - validation done , go frwd...
+2025-11-08 21:09:29,985 - root - INFO - Processing telangana_transport_sales_jan_2019.csv
+2025-11-08 21:09:29,985 - ingest - WARNING - load_files method stared...
+2025-11-08 21:09:29,985 - ingest - WARNING - dataframe created sucessfully which is of C:\Users\Gunav\Desktop\spark1-master\source\olap\telangana_transport_sales_jan_2019.csv
+2025-11-08 21:09:29,985 - root - ERROR - Failed telangana_transport_sales_jan_2019.csv
+Traceback (most recent call last):
+  File "C:\Users\Gunav\Desktop\spark1-master\driver.py", line 50, in main
+    df = load_files(spark, path, file_format, gav.header, gav.inferSchema)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Gunav\Desktop\spark1-master\ingest.py", line 23, in load_files
+    return df
+           ^^
+NameError: name 'df' is not defined
+2025-11-08 21:09:29,985 - root - INFO - Done in 14.00s
+2025-11-08 21:09:59,982 - root - INFO - Starting ETL
+2025-11-08 21:09:59,982 - create_spark - INFO - creating spark object..
+2025-11-08 21:09:59,982 - create_spark - INFO - master is local
+2025-11-08 21:10:03,980 - create_spark - INFO - spark object created successfully..
+2025-11-08 21:10:03,980 - validate - WARNING - started the get_current_date method..
+2025-11-08 21:10:07,703 - validate - WARNING - validation done , go frwd...
+2025-11-08 21:10:07,703 - root - INFO - Processing telangana_transport_sales_jan_2019.csv
+2025-11-08 21:10:07,703 - ingest - WARNING - load_files method stared...
+2025-11-08 21:10:07,703 - ingest - WARNING - dataframe created sucessfully which is of C:\Users\Gunav\Desktop\spark1-master\source\olap\telangana_transport_sales_jan_2019.csv
+2025-11-08 21:10:07,703 - root - ERROR - Failed telangana_transport_sales_jan_2019.csv
+Traceback (most recent call last):
+  File "c:\Users\Gunav\Desktop\spark1-master\driver.py", line 50, in main
+    df = load_files(spark, path, file_format, gav.header, gav.inferSchema)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Gunav\Desktop\spark1-master\ingest.py", line 23, in load_files
+    return df
+           ^^
+NameError: name 'df' is not defined
+2025-11-08 21:10:07,703 - root - INFO - Done in 7.73s
+2025-11-08 21:10:30,319 - root - INFO - Starting ETL
+2025-11-08 21:10:30,319 - create_spark - INFO - creating spark object..
+2025-11-08 21:10:30,319 - create_spark - INFO - master is local
+2025-11-08 21:10:34,112 - create_spark - INFO - spark object created successfully..
+2025-11-08 21:10:34,112 - validate - WARNING - started the get_current_date method..
+2025-11-08 21:10:37,359 - validate - WARNING - validation done , go frwd...
+2025-11-08 21:10:37,360 - root - INFO - Processing telangana_transport_sales_jan_2019.csv
+2025-11-08 21:10:37,360 - ingest - WARNING - load_files method stared...
+2025-11-08 21:10:37,360 - ingest - WARNING - dataframe created sucessfully which is of C:\Users\Gunav\Desktop\spark1-master\source\olap\telangana_transport_sales_jan_2019.csv
+2025-11-08 21:10:37,360 - root - ERROR - Failed telangana_transport_sales_jan_2019.csv
+Traceback (most recent call last):
+  File "C:\Users\Gunav\Desktop\spark1-master\driver.py", line 50, in main
+    df = load_files(spark, path, file_format, gav.header, gav.inferSchema)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Gunav\Desktop\spark1-master\ingest.py", line 23, in load_files
+    return df
+           ^^
+NameError: name 'df' is not defined
+2025-11-08 21:10:37,361 - root - INFO - Done in 7.04s
+2025-11-08 21:10:38,080 - root - INFO - Starting ETL
+2025-11-08 21:10:38,080 - create_spark - INFO - creating spark object..
+2025-11-08 21:10:38,080 - create_spark - INFO - master is local
+2025-11-08 21:10:41,693 - create_spark - INFO - spark object created successfully..
+2025-11-08 21:10:41,694 - validate - WARNING - started the get_current_date method..
+2025-11-08 21:10:45,057 - validate - WARNING - validation done , go frwd...
+2025-11-08 21:10:45,057 - root - INFO - Processing telangana_transport_sales_jan_2019.csv
+2025-11-08 21:10:45,059 - ingest - WARNING - load_files method stared...
+2025-11-08 21:10:45,059 - ingest - WARNING - dataframe created sucessfully which is of C:\Users\Gunav\Desktop\spark1-master\source\olap\telangana_transport_sales_jan_2019.csv
+2025-11-08 21:10:45,059 - root - ERROR - Failed telangana_transport_sales_jan_2019.csv
+Traceback (most recent call last):
+  File "C:\Users\Gunav\Desktop\spark1-master\driver.py", line 50, in main
+    df = load_files(spark, path, file_format, gav.header, gav.inferSchema)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Gunav\Desktop\spark1-master\ingest.py", line 23, in load_files
+    return df
+           ^^
+NameError: name 'df' is not defined
+2025-11-08 21:10:45,059 - root - INFO - Done in 6.97s
+2025-11-08 21:13:20,356 - root - INFO - Starting ETL
+2025-11-08 21:13:20,356 - create_spark - INFO - creating spark object..
+2025-11-08 21:13:20,356 - create_spark - INFO - master is local
+2025-11-08 21:13:23,976 - create_spark - INFO - spark object created successfully..
+2025-11-08 21:13:23,976 - validate - WARNING - started the get_current_date method..
+2025-11-08 21:13:27,448 - validate - WARNING - validation done , go frwd...
+2025-11-08 21:13:27,448 - root - INFO - Processing telangana_transport_sales_jan_2019.csv
+2025-11-08 21:13:27,448 - ingest - WARNING - load_files method stared...
+2025-11-08 21:13:27,448 - ingest - WARNING - dataframe created sucessfully which is of C:\Users\Gunav\Desktop\spark1-master\source\olap\telangana_transport_sales_jan_2019.csv
+2025-11-08 21:13:27,448 - root - ERROR - Failed telangana_transport_sales_jan_2019.csv
+Traceback (most recent call last):
+  File "C:\Users\Gunav\Desktop\spark1-master\driver.py", line 50, in main
+    df = load_files(spark, path, file_format, gav.header, gav.inferSchema)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Gunav\Desktop\spark1-master\ingest.py", line 23, in load_files
+    return df
+           ^^
+NameError: name 'df' is not defined
+2025-11-08 21:13:27,448 - root - INFO - Done in 7.09s
+2025-11-08 21:15:29,981 - root - INFO - Starting ETL
+2025-11-08 21:15:29,981 - create_spark - INFO - creating spark object..
+2025-11-08 21:15:29,981 - create_spark - INFO - master is local
+2025-11-08 21:15:33,664 - create_spark - INFO - spark object created successfully..
+2025-11-08 21:15:33,664 - validate - WARNING - started the get_current_date method..
+2025-11-08 21:15:37,257 - validate - WARNING - validation done , go frwd...
+2025-11-08 21:15:37,258 - root - INFO - reading file which is of > csv
+2025-11-08 21:15:37,259 - ingest - WARNING - load_files method stared...
+2025-11-08 21:15:38,885 - ingest - WARNING - dataframe created sucessfully which is of csv
+2025-11-08 21:15:38,885 - root - INFO - displaying the dataframe
+2025-11-08 21:15:38,885 - ingest - INFO - Displaying DataFrame: df_transport
+2025-11-08 21:15:39,142 - root - INFO - validating the dataframe...
+2025-11-08 21:15:39,142 - ingest - WARNING - here to count the records in the df_transport
+2025-11-08 21:15:39,762 - ingest - WARNING - Number of records present in the DataFrame[slno: int, modelDesc: string, fuel: string, colour: string, vehicleClass: string, makeYear: string, seatCapacity: int, secondVehicle: string, tempRegistrationNumber: string, category: string, makerName: string, OfficeCd: string, fromdate: string, todate: string] are :: 184665
+2025-11-08 21:15:39,762 - root - INFO - calling ETL pipeline
+2025-11-08 21:15:39,762 - transformation - INFO - Starting clean_and_stage()
+2025-11-08 21:15:40,501 - transformation - ERROR - ETL failed: name 'F' is not defined
+Traceback (most recent call last):
+  File "C:\Users\Gunav\Desktop\spark1-master\transformation.py", line 425, in run_rta_etl_on_df
+    df_stage = clean_and_stage(df_raw, metrics, bad_root, output_format=output_format)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Gunav\Desktop\spark1-master\transformation.py", line 115, in clean_and_stage
+    df = df.withColumn("row_num", F.row_number().over(window_spec)).filter(col("row_num") == 1).drop("row_num")
+                                  ^
+NameError: name 'F' is not defined
+2025-11-08 21:15:40,507 - root - ERROR - Failed processing telangana_transport_sales_jan_2019.csv
+Traceback (most recent call last):
+  File "C:\Users\Gunav\Desktop\spark1-master\driver.py", line 77, in main
+    metrics = run_rta_etl_on_df(df_transport, spark, run_id)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Gunav\Desktop\spark1-master\transformation.py", line 425, in run_rta_etl_on_df
+    df_stage = clean_and_stage(df_raw, metrics, bad_root, output_format=output_format)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Gunav\Desktop\spark1-master\transformation.py", line 115, in clean_and_stage
+    df = df.withColumn("row_num", F.row_number().over(window_spec)).filter(col("row_num") == 1).drop("row_num")
+                                  ^
+NameError: name 'F' is not defined
+2025-11-08 21:15:40,507 - root - INFO - Done in 10.52 seconds
+2025-11-08 21:16:12,121 - root - INFO - Starting ETL
+2025-11-08 21:16:12,121 - create_spark - INFO - creating spark object..
+2025-11-08 21:16:12,121 - create_spark - INFO - master is local
+2025-11-08 21:16:15,442 - create_spark - INFO - spark object created successfully..
+2025-11-08 21:16:15,442 - validate - WARNING - started the get_current_date method..
+2025-11-08 21:16:18,848 - validate - WARNING - validation done , go frwd...
+2025-11-08 21:16:18,850 - root - INFO - reading file which is of > csv
+2025-11-08 21:16:18,850 - ingest - WARNING - load_files method stared...
+2025-11-08 21:16:20,543 - ingest - WARNING - dataframe created sucessfully which is of csv
+2025-11-08 21:16:20,543 - root - INFO - displaying the dataframe
+2025-11-08 21:16:20,543 - ingest - INFO - Displaying DataFrame: df_transport
+2025-11-08 21:16:20,854 - root - INFO - validating the dataframe...
+2025-11-08 21:16:20,854 - ingest - WARNING - here to count the records in the df_transport
+2025-11-08 21:16:21,356 - ingest - WARNING - Number of records present in the DataFrame[slno: int, modelDesc: string, fuel: string, colour: string, vehicleClass: string, makeYear: string, seatCapacity: int, secondVehicle: string, tempRegistrationNumber: string, category: string, makerName: string, OfficeCd: string, fromdate: string, todate: string] are :: 184665
+2025-11-08 21:16:21,356 - root - INFO - calling ETL pipeline
+2025-11-08 21:16:21,356 - transformation - INFO - Starting clean_and_stage()
+2025-11-08 21:16:22,045 - transformation - ERROR - ETL failed: name 'F' is not defined
+Traceback (most recent call last):
+  File "C:\Users\Gunav\Desktop\spark1-master\transformation.py", line 425, in run_rta_etl_on_df
+    df_stage = clean_and_stage(df_raw, metrics, bad_root, output_format=output_format)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Gunav\Desktop\spark1-master\transformation.py", line 115, in clean_and_stage
+    df = df.withColumn("row_num", F.row_number().over(window_spec)).filter(col("row_num") == 1).drop("row_num")
+                                  ^
+NameError: name 'F' is not defined
+2025-11-08 21:16:22,045 - root - ERROR - Failed processing telangana_transport_sales_jan_2019.csv
+Traceback (most recent call last):
+  File "C:\Users\Gunav\Desktop\spark1-master\driver.py", line 77, in main
+    metrics = run_rta_etl_on_df(df_transport, spark, run_id)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Gunav\Desktop\spark1-master\transformation.py", line 425, in run_rta_etl_on_df
+    df_stage = clean_and_stage(df_raw, metrics, bad_root, output_format=output_format)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Gunav\Desktop\spark1-master\transformation.py", line 115, in clean_and_stage
+    df = df.withColumn("row_num", F.row_number().over(window_spec)).filter(col("row_num") == 1).drop("row_num")
+                                  ^
+NameError: name 'F' is not defined
+2025-11-08 21:16:22,045 - root - INFO - Done in 9.93 seconds
+2025-11-08 21:18:32,514 - root - INFO - Starting ETL
+2025-11-08 21:18:32,515 - create_spark - INFO - creating spark object..
+2025-11-08 21:18:32,515 - create_spark - INFO - master is local
+2025-11-08 21:18:36,797 - create_spark - INFO - spark object created successfully..
+2025-11-08 21:18:36,797 - validate - WARNING - started the get_current_date method..
+2025-11-08 21:18:40,716 - validate - WARNING - validation done , go frwd...
+2025-11-08 21:18:40,716 - root - INFO - reading file which is of > csv
+2025-11-08 21:18:40,716 - ingest - WARNING - load_files method stared...
+2025-11-08 21:18:42,373 - ingest - WARNING - dataframe created sucessfully which is of csv
+2025-11-08 21:18:42,373 - root - INFO - displaying the dataframe
+2025-11-08 21:18:42,373 - ingest - INFO - Displaying DataFrame: df_transport
+2025-11-08 21:18:42,766 - root - INFO - validating the dataframe...
+2025-11-08 21:18:42,766 - ingest - WARNING - here to count the records in the df_transport
+2025-11-08 21:18:43,357 - ingest - WARNING - Number of records present in the DataFrame[slno: int, modelDesc: string, fuel: string, colour: string, vehicleClass: string, makeYear: string, seatCapacity: int, secondVehicle: string, tempRegistrationNumber: string, category: string, makerName: string, OfficeCd: string, fromdate: string, todate: string] are :: 184665
+2025-11-08 21:18:43,357 - root - INFO - calling ETL pipeline
+2025-11-08 21:18:43,357 - transformation - INFO - Starting clean_and_stage()
+2025-11-08 21:18:54,720 - transformation - INFO - Completed clean_and_stage()
+2025-11-08 21:18:54,720 - transformation - INFO - Deriving emissionStandard
+2025-11-08 21:18:57,847 - transformation - INFO - Generating surrogate keys
+2025-11-08 21:19:00,252 - transformation - INFO - Building dimensions
+2025-11-08 21:19:07,706 - transformation - INFO - Running exact + fuzzy vehicle resolution
+2025-11-08 21:19:43,177 - transformation - INFO - Assembling fact table
+2025-11-08 21:20:11,090 - transformation - INFO - Starting dynamic coalesce write to run_1762616923\gold_fact_registrations (format=parquet)
+2025-11-08 21:20:55,282 - transformation - INFO - RTA ETL on dataframe completed successfully.
+2025-11-08 21:20:55,282 - root - INFO - Metrics: {'run_id': None, 'config': {'output_root': 'run_1762616923', 'mode': 'overwrite', 'target_mb': 128.0}, 'steps': {'clean_and_stage': {'before': 184665, 'missing_tempRegistrationNumber': 0, 'after_dedupe': 95519, 'deduplicated_rows': 89146, 'invalid_dates': 0, 'staged_rows': 95519}, 'derive_emission_standard': {'before': 95519, 'after': 95519}, 'generate_surrogate_keys': {'before': 95519, 'after': 95519}, 'build_dimensions': {'dim_vehicle_count': 5535, 'dim_manufacturer_count': 372, 'dim_rta_count': 53}, 'fuzzy_vehicle_resolution': {'exact_matches': 95519, 'fuzzy_matches': 0, 'total_resolved': 95519}, 'assemble_fact_table': {'before': 95519, 'after': 95519}}, 'writes': {'fact': {'path': 'run_1762616923\\gold_fact_registrations', 'coalesced_parts': 1, 'bytes': 1876648}}, 'final_counts': {'dim_vehicle': 5535, 'dim_manufacturer': 372, 'dim_rta': 53, 'fact_rows': 95519}}
+2025-11-08 21:20:55,282 - root - INFO - Done in 142.77 seconds
+2025-11-08 21:48:36,661 - utils.logger - INFO - ================================================================================
+2025-11-08 21:48:36,661 - utils.logger - INFO - Starting RTA ETL Pipeline
+2025-11-08 21:48:36,661 - utils.logger - INFO - ================================================================================
+2025-11-08 21:48:36,661 - utils.logger - INFO - Creating Spark session...
+2025-11-08 21:48:41,022 - validate - WARNING - started the get_current_date method..
+2025-11-08 21:48:45,200 - validate - WARNING - validation done , go frwd...
+2025-11-08 21:48:45,200 - utils.logger - INFO - Processing file: telangana_transport_sales_jan_2019.csv (format: csv)
+2025-11-08 21:48:45,200 - ingest - WARNING - load_files method stared...
+2025-11-08 21:48:47,043 - ingest - WARNING - dataframe created sucessfully which is of csv
+2025-11-08 21:48:47,043 - ingest - INFO - Displaying DataFrame: df_telangana_transport_sales_jan_2019.csv
+2025-11-08 21:48:47,352 - ingest - WARNING - here to count the records in the df_telangana_transport_sales_jan_2019.csv
+2025-11-08 21:48:48,285 - ingest - WARNING - Number of records present in the DataFrame[slno: int, modelDesc: string, fuel: string, colour: string, vehicleClass: string, makeYear: string, seatCapacity: int, secondVehicle: string, tempRegistrationNumber: string, category: string, makerName: string, OfficeCd: string, fromdate: string, todate: string] are :: 184665
+2025-11-08 21:48:48,285 - utils.logger - INFO - Starting ETL pipeline with run_id: run_1762618728
+2025-11-08 21:48:48,285 - transformation - INFO - Starting clean_and_stage()
+2025-11-08 21:48:55,674 - transformation - INFO - Completed clean_and_stage()
+2025-11-08 21:48:55,674 - transformation - INFO - Deriving emissionStandard
+2025-11-08 21:48:56,911 - transformation - INFO - Generating surrogate keys
+2025-11-08 21:48:58,360 - transformation - INFO - Building dimensions
+2025-11-08 21:49:03,249 - transformation - INFO - Running exact + fuzzy vehicle resolution
+2025-11-08 21:49:27,539 - transformation - INFO - Assembling fact table
+2025-11-08 21:49:44,670 - transformation - INFO - Starting dynamic coalesce write to run_1762618728\gold_fact_registrations (format=parquet)
+2025-11-08 21:50:13,452 - transformation - INFO - RTA ETL on dataframe completed successfully.
+2025-11-08 21:50:13,452 - utils.logger - INFO - ETL completed. Metrics: {'run_id': None, 'config': {'output_root': 'run_1762618728', 'mode': 'overwrite', 'target_mb': 128.0}, 'steps': {'clean_and_stage': {'before': 184665, 'missing_tempRegistrationNumber': 0, 'after_dedupe': 95519, 'deduplicated_rows': 89146, 'invalid_dates': 0, 'staged_rows': 95519}, 'derive_emission_standard': {'before': 95519, 'after': 95519}, 'generate_surrogate_keys': {'before': 95519, 'after': 95519}, 'build_dimensions': {'dim_vehicle_count': 5535, 'dim_manufacturer_count': 372, 'dim_rta_count': 53}, 'fuzzy_vehicle_resolution': {'exact_matches': 95519, 'fuzzy_matches': 0, 'total_resolved': 95519}, 'assemble_fact_table': {'before': 95519, 'after': 95519}}, 'writes': {'fact': {'path': 'run_1762618728\\gold_fact_registrations', 'coalesced_parts': 1, 'bytes': 3052142}}, 'final_counts': {'dim_vehicle': 5535, 'dim_manufacturer': 372, 'dim_rta': 53, 'fact_rows': 95519}}
+2025-11-08 21:50:13,466 - utils.logger - INFO - ================================================================================
+2025-11-08 21:50:13,466 - utils.logger - INFO - Pipeline completed: 1 files processed in 96.81s
+2025-11-08 21:50:13,466 - utils.logger - INFO - ================================================================================
+2025-11-09 08:36:11,426 - utils.logger - INFO - ================================================================================
+2025-11-09 08:36:11,426 - utils.logger - INFO - Starting RTA ETL Pipeline
+2025-11-09 08:36:11,429 - utils.logger - INFO - ================================================================================
+2025-11-09 08:36:11,429 - utils.logger - INFO - Creating Spark session...
+2025-11-09 08:36:36,116 - validate - WARNING - started the get_current_date method..
+2025-11-09 08:36:39,922 - validate - WARNING - validation done , go frwd...
+2025-11-09 08:36:39,922 - utils.logger - INFO - Processing file: telangana_transport_sales_jan_2019.csv (format: csv)
+2025-11-09 08:36:39,922 - ingest - WARNING - load_files method stared...
+2025-11-09 08:36:41,449 - ingest - WARNING - dataframe created sucessfully which is of csv
+2025-11-09 08:36:41,449 - ingest - INFO - Displaying DataFrame: df_telangana_transport_sales_jan_2019.csv
+2025-11-09 08:36:41,730 - ingest - WARNING - here to count the records in the df_telangana_transport_sales_jan_2019.csv
+2025-11-09 08:36:42,425 - ingest - WARNING - Number of records present in the DataFrame[slno: int, modelDesc: string, fuel: string, colour: string, vehicleClass: string, makeYear: string, seatCapacity: int, secondVehicle: string, tempRegistrationNumber: string, category: string, makerName: string, OfficeCd: string, fromdate: string, todate: string] are :: 184665
+2025-11-09 08:36:42,425 - utils.logger - INFO - Starting ETL pipeline with run_id: run_1762657602
+2025-11-09 08:36:42,425 - transformation - INFO - Starting clean_and_stage()
+2025-11-09 08:36:48,319 - transformation - INFO - Completed clean_and_stage()
+2025-11-09 08:36:48,319 - transformation - INFO - Deriving emissionStandard
+2025-11-09 08:36:49,223 - transformation - INFO - Generating surrogate keys
+2025-11-09 08:36:50,115 - transformation - INFO - Building dimensions
+2025-11-09 08:36:53,659 - transformation - INFO - Running exact + fuzzy vehicle resolution
+2025-11-09 08:37:13,187 - transformation - INFO - Assembling fact table
+2025-11-09 08:37:26,630 - transformation - INFO - Starting dynamic coalesce write to run_1762657602\gold_fact_registrations (format=parquet)
+2025-11-09 08:37:50,145 - transformation - INFO - RTA ETL on dataframe completed successfully.
+2025-11-09 08:37:50,145 - utils.logger - INFO - ETL completed. Metrics: {'run_id': None, 'config': {'output_root': 'run_1762657602', 'mode': 'overwrite', 'target_mb': 128.0}, 'steps': {'clean_and_stage': {'before': 184665, 'missing_tempRegistrationNumber': 0, 'after_dedupe': 95519, 'deduplicated_rows': 89146, 'invalid_dates': 0, 'staged_rows': 95519}, 'derive_emission_standard': {'before': 95519, 'after': 95519}, 'generate_surrogate_keys': {'before': 95519, 'after': 95519}, 'build_dimensions': {'dim_vehicle_count': 5535, 'dim_manufacturer_count': 372, 'dim_rta_count': 53}, 'fuzzy_vehicle_resolution': {'exact_matches': 95519, 'fuzzy_matches': 0, 'total_resolved': 95519}, 'assemble_fact_table': {'before': 95519, 'after': 95519}}, 'writes': {'fact': {'path': 'run_1762657602\\gold_fact_registrations', 'coalesced_parts': 1, 'bytes': 3052142}}, 'final_counts': {'dim_vehicle': 5535, 'dim_manufacturer': 372, 'dim_rta': 53, 'fact_rows': 95519}}
+2025-11-09 08:37:50,160 - utils.logger - INFO - ================================================================================
+2025-11-09 08:37:50,160 - utils.logger - INFO - Pipeline completed: 1 files processed in 98.73s
+2025-11-09 08:37:50,160 - utils.logger - INFO - ================================================================================
