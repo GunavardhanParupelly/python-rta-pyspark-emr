@@ -70,15 +70,7 @@ spark1-master/
 - **output/**: Pipeline output files.
 - **driver.py**: Main script to run the ETL pipeline.
 
----
+--
 
-## Notes
 
-- Do **not** commit sensitive information (like AWS keys) to the repository.
-- Do **not** commit your virtual environment folder (`spark1locanvenv/`) to git.
-- `.pytest_cache` and other temporary files should not be tracked by git.
-
----
-
-Feel free to expand this README as your project evolves!
 
