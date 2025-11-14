@@ -1,0 +1,14 @@
+[
+  "tests/test_transformation.py::test_date_key_format",
+  "tests/test_transformation.py::test_dim_manufacturer_unique",
+  "tests/test_transformation.py::test_dim_vehicle_unique_and_nonnull",
+  "tests/test_transformation.py::test_emission_standard_valid_values",
+  "tests/test_transformation.py::test_etl1_integration_quality",
+  "tests/test_transformation.py::test_fact_foreign_keys_present",
+  "tests/test_transformation.py::test_fact_to_dim_fk_integrity",
+  "tests/test_transformation.py::test_fuel_normalization_logic",
+  "tests/test_transformation.py::test_fuzzy_match_distance",
+  "tests/test_transformation.py::test_officecd_misalignment_logic",
+  "tests/test_transformation.py::test_parse_dates_mixed_formats",
+  "tests/test_transformation.py::test_surrogate_key_determinism"
+]
