@@ -1,6 +1,6 @@
 # RTA ETL Pipeline
 
-A scalable ETL pipeline for RTA data, built with PySpark.
+A scalable ETL pipeline for RTA data, built with Python and PySpark.
 
 ---
 
@@ -71,14 +71,3 @@ spark1-master/
 - **driver.py**: Main script to run the ETL pipeline.
 
 ---
-
-## Notes
-
-- Do **not** commit sensitive information (like AWS keys) to the repository.
-- Do **not** commit your virtual environment folder (`spark1locanvenv/`) to git.
-- `.pytest_cache` and other temporary files should not be tracked by git.
-
----
-
-Feel free to expand this README as your project evolves!
-
