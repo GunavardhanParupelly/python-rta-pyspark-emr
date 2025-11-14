@@ -48,13 +48,9 @@ source/
 Proporties/
 Properties/
 
-# Project structure
-spark1-master/
-├── src/                    ✅ Your code
-├── data/                   ✅ Input/output data
-├── tests/                  ✅ Unit tests
-├── .venv/ or sparl1locanvenv/  ✅ Virtual environment (choose one)
-├── driver.py              ✅ Main script
-├── requirements.txt       ✅ Dependencies
-├── README.md              ✅ Documentation
-└── .gitignore             ✅ Git ignore rulescls
+
+# Pytest cache
+.pytest_cache/
+
+# VS Code settings
+.vscode/
