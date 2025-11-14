@@ -1,6 +1,6 @@
 # RTA ETL Pipeline
 
-A scalable ETL pipeline for RTA data, built with PySpark.
+A scalable ETL pipeline for RTA data, built with Python and PySpark.
 
 ---
 
@@ -69,8 +69,4 @@ spark1-master/
 - **data/**: Input and output datasets.
 - **output/**: Pipeline output files.
 - **driver.py**: Main script to run the ETL pipeline.
-
---
-
-
 
