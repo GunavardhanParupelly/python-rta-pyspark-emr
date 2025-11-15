@@ -93,6 +93,3 @@ output/
 ├── gold_dim_rta/             # RTA dimension table
 ├── error_table/              # Invalid records
 ```
-
----
-
